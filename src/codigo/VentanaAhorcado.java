@@ -30,24 +30,40 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     }
 
     private void chequeaBoton(JButton _boton) {
-	_boton.setEnabled(false);
-	chequeaLetra(_boton.getText());
+	if (_boton.isEnabled()) {
+	    _boton.setEnabled(false);
+	    chequeaLetra(_boton.getText());
+	}
     }
 
     private void dibujaImagen(int numImg) {
 	URL nombreImagen;
-	String  nombre = "";
+	String nombre = "";
 	switch (numImg) {
-	    case 0: nombre = "/img/ahorcado_0.png"; break;
-	    case 1: nombre = "/img/ahorcado_1.png"; break;
-	    case 2: nombre = "/img/ahorcado_2.png"; break;
-	    case 3: nombre = "/img/ahorcado_3.png"; break;
-	    case 4: nombre = "/img/ahorcado_4.png"; break;
-	    case 5: nombre = "/img/ahorcado_5.png"; break;
-	    default: nombre = "/img/ahorcado_fin.png"; break;
+	    case 0:
+		nombre = "/img/ahorcado_0.png";
+		break;
+	    case 1:
+		nombre = "/img/ahorcado_1.png";
+		break;
+	    case 2:
+		nombre = "/img/ahorcado_2.png";
+		break;
+	    case 3:
+		nombre = "/img/ahorcado_3.png";
+		break;
+	    case 4:
+		nombre = "/img/ahorcado_4.png";
+		break;
+	    case 5:
+		nombre = "/img/ahorcado_5.png";
+		break;
+	    default:
+		nombre = "/img/ahorcado_fin.png";
+		break;
 	}
 	nombreImagen = getClass().getResource(nombre);
-	
+
 	int ancho = jLabel2.getWidth();
 	int alto = jLabel2.getHeight();
 	ImageIcon miImagen = new ImageIcon(
@@ -66,10 +82,10 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 	for (int i = 0; i < palabraOculta.length(); i++) {
 	    if (letra.charAt(0) == palabraOculta.charAt(i)) {
 		// TODO Quitar guion de jLabel1 y mostrar letra correspondiente
-		palabraConGuiones = 
-			palabraConGuiones.substring(0, i*2) + 
-			letra + 
-			palabraConGuiones.substring(i*2+1);
+		palabraConGuiones
+			= palabraConGuiones.substring(0, i * 2)
+			+ letra
+			+ palabraConGuiones.substring(i * 2 + 1);
 		acierto = true;
 	    }
 	}
