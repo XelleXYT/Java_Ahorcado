@@ -34,14 +34,10 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 
     private String escogePalabra(){
 	String palabra = "CETYS";
-	String[] listaPalabras = {"hola","adios"};
+	String[] listaPalabras = {"hola","adios","esternocleidomastoideo"};
 	Random random = new Random();
-	int nPalabra = random.nextInt(listaPalabras.length);
-	
-	palabra = listaPalabras[nPalabra];
-	
+	palabra = listaPalabras[random.nextInt(listaPalabras.length)];
 	palabra = palabra.toUpperCase();
-	
 	return palabra;
     }
     
