@@ -7,6 +7,7 @@ package codigo;
 
 import java.awt.Image;
 import java.net.URL;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -16,8 +17,9 @@ import javax.swing.JButton;
  */
 public class VentanaAhorcado extends javax.swing.JFrame {
 
-    String palabraOculta = "CETYS";
+    String palabraOculta;
     int numeroDeFallos = 0;
+    boolean gameover = false;
 
     /**
      * Creates new form VentanaAhorcado
@@ -27,8 +29,22 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 
 	//Inicializo la imagen del label del ahorcado
 	dibujaImagen(0);
+	palabraOculta = escogePalabra();
     }
 
+    private String escogePalabra(){
+	String palabra = "CETYS";
+	String[] listaPalabras = {"hola","adios"};
+	Random random = new Random();
+	int nPalabra = random.nextInt(listaPalabras.length);
+	
+	palabra = listaPalabras[nPalabra];
+	
+	palabra = palabra.toUpperCase();
+	
+	return palabra;
+    }
+    
     private void chequeaBoton(JButton _boton) {
 	if (_boton.isEnabled()) {
 	    _boton.setEnabled(false);
