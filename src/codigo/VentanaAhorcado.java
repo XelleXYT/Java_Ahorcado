@@ -30,6 +30,19 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 	//Inicializo la imagen del label del ahorcado
 	dibujaImagen(0);
 	palabraOculta = escogePalabra();
+	dibujaCampo();
+    }
+    
+    /**
+     * Crea el campo acorde al tamaño de la palabra.
+     */
+    private void dibujaCampo(){
+	String oculto = "";
+	jLabel1.setText(oculto);
+	for(int i=0;i<palabraOculta.length();i++){
+	    oculto = jLabel1.getText();
+	    jLabel1.setText(oculto + "_ ");
+	}
     }
     
     /**
@@ -39,7 +52,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
      */
     private String escogePalabra(){
 	String palabra = "CETYS";
-	String[] listaPalabras = {"hola","adios","esternocleidomastoideo"};
+	String[] listaPalabras = {"hola","adios","esternocleidomastoideo","piña","CETYS"};
 	Random random = new Random();
 	palabra = listaPalabras[random.nextInt(listaPalabras.length)];
 	palabra = palabra.toUpperCase();
