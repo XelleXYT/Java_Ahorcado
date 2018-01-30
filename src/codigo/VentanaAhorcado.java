@@ -31,7 +31,12 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 	dibujaImagen(0);
 	palabraOculta = escogePalabra();
     }
-
+    
+    /**
+     * Selecciona una palabra aleatoria de dentro del array de palabras.
+     * 
+     * @return - String
+     */
     private String escogePalabra(){
 	String palabra = "CETYS";
 	String[] listaPalabras = {"hola","adios","esternocleidomastoideo"};
@@ -41,6 +46,11 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 	return palabra;
     }
     
+    /**
+     * Chequea si se puede dar al boton y contiene chequeaLetra.
+     * 
+     * @param _boton - JButton
+     */
     private void chequeaBoton(JButton _boton) {
 	if (_boton.isEnabled()) {
 	    _boton.setEnabled(false);
@@ -48,6 +58,11 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 	}
     }
 
+    /**
+     * Dibuja las distintas imagenes segun surgen los fallos.
+     * 
+     * @param numImg - int
+     */
     private void dibujaImagen(int numImg) {
 	URL nombreImagen;
 	String nombre = "";
@@ -87,6 +102,11 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 	jLabel2.setIcon(miImagen);
     }
 
+    /**
+     * Chequea si la palabra contiene la letra y la dibuja en su sitio.
+     * 
+     * @param letra - String
+     */
     private void chequeaLetra(String letra) {
 	letra = letra.toUpperCase();
 	String palabraConGuiones = jLabel1.getText();
